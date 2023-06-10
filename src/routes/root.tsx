@@ -23,7 +23,9 @@ const Root = () => {
       <nav>
         <ul>
           <li>
-            <Link to={`/ecolo-crimes/1`}>Countries where Ecolo is banned</Link>
+            <Link to={`/puyo-gateway/ecolo-crimes/1`}>
+              Countries where Ecolo is banned
+            </Link>
           </li>
           <li>
             <Link to={`/contacts/2`}>Arle's Many Crimes</Link>

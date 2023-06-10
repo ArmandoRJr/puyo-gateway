@@ -8,12 +8,12 @@ import EcoloCrimes from "./routes/ecolo-crimes.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/puyo-gateway/",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "ecolo-crimes/:dumbassId",
+        path: "/puyo-gateway/ecolo-crimes/:dumbassId",
         element: <EcoloCrimes />,
       },
     ],
