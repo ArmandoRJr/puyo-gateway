@@ -1,20 +1,19 @@
-import { Form } from "react-router-dom";
+import { Form } from 'react-router-dom'
 
 export default function EcoloCrimes() {
   const contact = {
-    first: "Ecolo",
-    last: "?????",
-    avatar:
-      "https://www.models-resource.com/resources/big_icons/30/29930.png?updated=1559857556",
-    twitter: "@ecolo_shitposts",
+    first: 'Ecolo',
+    last: '?????',
+    avatar: 'https://www.models-resource.com/resources/big_icons/30/29930.png?updated=1559857556',
+    twitter: '@ecolo_shitposts',
     notes: "He's deadass just blue Play-doh",
     favorite: true,
-  };
+  }
 
   return (
     <div id="contact">
       <div>
-        <img key={contact.avatar} src={contact.avatar || null} />
+        <img key={contact.avatar} src={contact.avatar} />
       </div>
 
       <div>
@@ -25,8 +24,7 @@ export default function EcoloCrimes() {
             </>
           ) : (
             <i>No Name</i>
-          )}{" "}
-          <Favorite contact={contact} />
+          )}{' '}
         </h1>
 
         {contact.twitter && (
@@ -47,8 +45,8 @@ export default function EcoloCrimes() {
             method="post"
             action="destroy"
             onSubmit={(event) => {
-              if (!confirm("Please confirm you want to delete this record.")) {
-                event.preventDefault();
+              if (!confirm('Please confirm you want to delete this record.')) {
+                event.preventDefault()
               }
             }}
           >
@@ -57,21 +55,5 @@ export default function EcoloCrimes() {
         </div>
       </div>
     </div>
-  );
-}
-
-function Favorite({ contact }) {
-  // yes, this is a `let` for later
-  let favorite = contact.favorite;
-  return (
-    <Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
-      >
-        {favorite ? "★" : "☆"}
-      </button>
-    </Form>
-  );
+  )
 }
