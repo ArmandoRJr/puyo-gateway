@@ -36,23 +36,7 @@ export default function EcoloCrimes() {
         )}
 
         {contact.notes && <p>{contact.notes}</p>}
-
-        <div>
-          <Form action="edit">
-            <button type="submit">Edit</button>
-          </Form>
-          <Form
-            method="post"
-            action="destroy"
-            onSubmit={(event) => {
-              if (!confirm('Please confirm you want to delete this record.')) {
-                event.preventDefault()
-              }
-            }}
-          >
-            <button type="submit">Delete</button>
-          </Form>
-        </div>
+        <Form></Form>
       </div>
     </div>
   )
