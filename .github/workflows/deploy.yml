@@ -45,7 +45,6 @@ jobs:
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
-          name: production-files
           path: ./dist
 
   deploy:
@@ -55,7 +54,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
-        with:
-          artifact_name: production-files
 
 
