@@ -3,19 +3,22 @@ import { createBrowserRouter, createHashRouter } from 'react-router-dom'
 import ErrorPage from './error-page'
 import EcoloCrimes from './routes/ecolo-crimes'
 import Root from './routes/root'
-const router = createHashRouter([
-  {
-    path: '/',
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: '/ecolo-crimes',
-        element: <EcoloCrimes />,
-      },
-    ],
-  },
-])
+const router = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <Root />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: '/ecolo-crimes',
+          element: <EcoloCrimes />,
+        },
+      ],
+    },
+  ],
+  { basename: '/puyo-gateway' }
+)
 
 const App = () => {
   return (
