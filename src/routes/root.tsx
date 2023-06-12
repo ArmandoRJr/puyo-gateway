@@ -21,7 +21,7 @@ const Root = () => {
               <Link to={`/ecolo-crimes`}>Countries where Ecolo is banned</Link>
             </li>
             <li>
-              <Link to={`/contacts/2`}>Arle's Many Crimes</Link>
+              <Link to={`/arle-crimes`}>Arle's Many Crimes</Link>
             </li>
           </ul>
         </nav>

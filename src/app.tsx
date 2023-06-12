@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import ErrorPage from './error-page'
 import EcoloCrimes from './routes/ecolo-crimes'
 import Root from './routes/root'
+import ArleCrimes from './routes/arle-crimes'
 const router = createBrowserRouter(
   [
     {
@@ -13,6 +14,10 @@ const router = createBrowserRouter(
         {
           path: '/ecolo-crimes',
           element: <EcoloCrimes />,
+        },
+        {
+          path: '/arle-crimes',
+          element: <ArleCrimes />,
         },
       ],
     },
