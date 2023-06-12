@@ -23,7 +23,7 @@ export default function EcoloCrimes() {
               {contact.first} {contact.last}
             </>
           ) : (
-            <i>No Name</i>
+            <i>All the names</i>
           )}{' '}
         </h1>
 
