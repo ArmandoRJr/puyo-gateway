@@ -4,6 +4,20 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches: 
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+      
+concurrency:
+  group: pages
+  cancel-in-progress: true
+      
 
 jobs:
   build:
@@ -16,37 +30,29 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        with:
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Install dependencies
-        uses: bahmutov/npm-install@v1
+        run: npm install
 
       - name: Build project
         run: npm run build
 
-      - name: Move 404 file
-        run: cp ./404.html ./dist/404.html
-
       - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: production-files
           path: ./dist
 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+        uses: actions/deploy-pages@v2
+
+
