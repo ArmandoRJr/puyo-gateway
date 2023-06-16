@@ -1,4 +1,6 @@
-export default function EcoloCrimes () {
+import type { ReactElement } from 'react'
+
+export default function EcoloCrimes(): ReactElement {
   const contact = {
     first: 'Ecolo',
     last: '?????',
@@ -16,24 +18,24 @@ export default function EcoloCrimes () {
 
       <div>
         <h1>
-          {
-            contact.first || contact.last
-              ? <>{contact.first} {contact.last}</>
-              : <i>All the names</i>
-          }
+          {contact.first !== '' || contact.last !== '' ? (
+            <>
+              {contact.first} {contact.last}
+            </>
+          ) : (
+            <i>All the names</i>
+          )}
         </h1>
 
-        {
-          contact.twitter && (
-            <p>
-              <a target='_blank' rel='noreferrer' href={`https://twitter.com/${contact.twitter}`}>
-                {contact.twitter}
-              </a>
-            </p>
-          )
-        }
+        {contact.twitter !== '' && (
+          <p>
+            <a target='_blank' rel='noreferrer' href={`https://twitter.com/${contact.twitter}`}>
+              {contact.twitter}
+            </a>
+          </p>
+        )}
 
-        {contact.notes && <p>{contact.notes}</p>}
+        {contact.notes !== '' && <p>{contact.notes}</p>}
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
+import type { ReactElement } from 'react'
 
-const Root = () => {
+export default function Root(): ReactElement {
   return (
     <>
       <div id='sidebar'>
@@ -23,7 +24,7 @@ const Root = () => {
               <Link to='/ecolo-crimes'>Countries where Ecolo is banned</Link>
             </li>
             <li>
-              <Link to='/contacts/2'>Arle's Many Crimes</Link>
+              <Link to='/contacts/2'>Arle&apos;s Many Crimes</Link>
             </li>
           </ul>
         </nav>
@@ -35,5 +36,3 @@ const Root = () => {
     </>
   )
 }
-
-export default Root
