@@ -1,6 +1,6 @@
-import { Form } from 'react-router-dom'
+import type { ReactElement } from 'react'
 
-export default function EcoloCrimes() {
+export default function EcoloCrimes(): ReactElement {
   const contact = {
     first: 'Ecolo',
     last: '?????',
@@ -11,32 +11,31 @@ export default function EcoloCrimes() {
   }
 
   return (
-    <div id="contact">
+    <div id='contact'>
       <div>
         <img key={contact.avatar} src={contact.avatar} />
       </div>
 
       <div>
         <h1>
-          {contact.first || contact.last ? (
+          {contact.first !== '' || contact.last !== '' ? (
             <>
               {contact.first} {contact.last}
             </>
           ) : (
             <i>All the names</i>
-          )}{' '}
+          )}
         </h1>
 
-        {contact.twitter && (
+        {contact.twitter !== '' && (
           <p>
-            <a target="_blank" href={`https://twitter.com/${contact.twitter}`}>
+            <a target='_blank' rel='noreferrer' href={`https://twitter.com/${contact.twitter}`}>
               {contact.twitter}
             </a>
           </p>
         )}
 
-        {contact.notes && <p>{contact.notes}</p>}
-        <Form></Form>
+        {contact.notes !== '' && <p>{contact.notes}</p>}
       </div>
     </div>
   )

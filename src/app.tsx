@@ -1,8 +1,11 @@
 import { RouterProvider } from 'react-router'
 import { createBrowserRouter } from 'react-router-dom'
+import type { ReactElement } from 'react'
+
 import ErrorPage from './error-page'
 import EcoloCrimes from './routes/ecolo-crimes'
 import Root from './routes/root'
+
 const router = createBrowserRouter(
   [
     {
@@ -20,7 +23,7 @@ const router = createBrowserRouter(
   { basename: '/puyo-gateway' }
 )
 
-const App = () => {
+const App = (): ReactElement => {
   return (
     // <BrowserRouter basename="/puyo-gateway">
     //   <Routes>
